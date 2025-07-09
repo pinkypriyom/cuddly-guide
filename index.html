@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Audio Highlighter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Text-to-Speech & Audio Highlighting</h1>
+
+    <div class="container">
+        <h2>Generate Voice (Browser Native)</h2>
+        <p class="explanation-text">Generates "AI-like" voice using your browser's capabilities. Highlighting will be **approximate**.</p>
+        <textarea id="textInput" placeholder="Enter text for voice generation (English or Hindi)..." rows="6" cols="50"></textarea>
+
+        <div class="options-group">
+            <div class="option-item">
+                <label for="languageSelect">Language:</label>
+                <select id="languageSelect">
+                    <option value="en-US">English</option>
+                    <option value="hi-IN">Hindi</option>
+                </select>
+            </div>
+
+            <div class="option-item">
+                <label for="genderSelect">Voice Gender:</label>
+                <select id="genderSelect">
+                    <option value="FEMALE">Female</option>
+                    <option value="MALE">Male</option>
+                </select>
+            </div>
+        </div>
+
+        <button id="generateAndPlayButton">Generate Voice & Play</button>
+        <button id="downloadAudioButton" style="display: none;" disabled>Download Audio (Not available for browser-generated voice)</button>
+
+        <div class="divider">OR</div>
+
+        <h2>Upload Your Own Audio</h2>
+        <p class="explanation-text">Upload an audio file and use the text above as its transcript. Highlighting will be **approximate**.</p>
+        <label for="audioFileInput">Select Audio File:</label>
+        <input type="file" id="audioFileInput" accept="audio/*">
+        <button id="uploadAndPlayButton">Upload & Play Audio</button>
+    </div>
+
+    <div class="container speed-control-container">
+        <h2>Playback Speed</h2>
+        <div class="speed-control">
+            <label for="speedController">Speed:</label>
+            <input type="range" id="speedController" min="0.5" max="2.0" step="0.1" value="1.0">
+            <span id="speedValue">1.0x</span>
+        </div>
+    </div>
+    <div class="message" id="message"></div>
+
+    <div class="text-display" id="textDisplay">
+        </div>
+
+    <audio id="audioPlayer" controls style="display: none;"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
